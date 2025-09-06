@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { FaGraduationCap } from "react-icons/fa";
+import StMarys from "../assets/StMarys.jpg";
+import Radiant from "../assets/Radiant.jpg";
+import SST from "../assets/SST.jpg";
+import BitsPilani from "../assets/BitsPilani.jpg";
 
 //Education Section with Timeline
 function Education() {
@@ -9,28 +13,28 @@ function Education() {
       degree: "Elementary Education",
       year: "2014 - 2016",
       Percentage: "98%",
-      image: "/src/assets/St.Marys.jpg",
+      image: StMarys,
     },
     {
       school: "Radiant International School",
       degree: "Senior Secondary School",
       year: "2016 - 2024",
       Percentage: "95%",
-      image: "/src/assets/Radiant.jpg",
+      image: Radiant,
     },
     {
       school: "Scaler School of Technology",
       degree: "Computer Science",
       year: "2024 - 2028",
       CGR: "7",
-      image: "/src/assets/SST.jpg",
+      image: SST,
     },
     {
       school: "BITS Pilani",
       degree: "BSc in Computer Science",
       year: "2024 - 2027",
       CGPA: "8.78",
-      image: "/src/assets/BitsPilani.jpg",
+      image: BitsPilani,
     },
   ];
 
