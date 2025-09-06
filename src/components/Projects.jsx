@@ -11,7 +11,7 @@ function Projects() {
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.filter(
-          (repo) => repo.name.trim().toLowerCase() !== "googlecolabworks" // Excluding the 'googlecolabworks' repo
+          (repo) => repo.name.trim().toLowerCase() !== "googlecolabworks" // Exclude unwanted repo
         );
         setRepos(filtered);
         setLoading(false);
@@ -27,11 +27,11 @@ function Projects() {
     );
   }
 
-  // Separating originals and forks
+  // Separate originals and forks
   const originals = repos.filter((r) => !r.fork);
   const forks = repos.filter((r) => r.fork);
 
-  // Ensure Sanskriti10247 and Sanskriti-Portfolio appears first
+  // Prioritize Sanskriti10247 & Portfolio repos
   const prioritized = [
     ...originals.filter(
       (r) =>
@@ -44,6 +44,9 @@ function Projects() {
         r.name.toLowerCase() !== "sanskriti-portfolio"
     ),
   ];
+
+  // Collect repos that have live sites
+  const liveRepos = prioritized.filter((repo) => repo.homepage);
 
   return (
     <section
@@ -131,6 +134,38 @@ function Projects() {
               >
                 <FaCodeBranch className="text-yellow-400" />
                 <span className="font-medium">{repo.name}</span>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ===== Live Projects Section ===== */}
+      {liveRepos.length > 0 && (
+        <div className="mt-32">
+          <h3 className="text-3xl font-bold text-center text-pink-400 mb-10">
+            🌐 Live Projects
+          </h3>
+
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+            {liveRepos.map((repo, i) => (
+              <motion.a
+                key={repo.id}
+                href={repo.homepage}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="block p-6 rounded-xl bg-gray-900 border border-pink-500/40 shadow-lg hover:scale-105 transition-transform"
+              >
+                <h4 className="text-xl font-semibold text-pink-400 mb-2">
+                  {repo.name}
+                </h4>
+                <p className="text-gray-400">
+                  {repo.description || "Deployed project"}
+                </p>
               </motion.a>
             ))}
           </div>
