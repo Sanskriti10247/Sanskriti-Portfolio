@@ -5,13 +5,13 @@ import { FaGithub, FaExternalLinkAlt, FaCodeBranch } from "react-icons/fa";
 function Projects() {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
-    
+
   useEffect(() => {
     fetch("https://api.github.com/users/Sanskriti10247/repos?per_page=100")
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.filter(
-          (repo) => repo.name.trim().toLowerCase() !== "googlecolabworks" // Excluding the 'googlecolabworks' repo  
+          (repo) => repo.name.trim().toLowerCase() !== "googlecolabworks" // Excluding the 'googlecolabworks' repo
         );
         setRepos(filtered);
         setLoading(false);
@@ -31,19 +31,33 @@ function Projects() {
   const originals = repos.filter((r) => !r.fork);
   const forks = repos.filter((r) => r.fork);
 
+  // Ensure Sanskriti10247 and Sanskriti-Portfolio appears first
+  const prioritized = [
+    ...originals.filter(
+      (r) =>
+        r.name.toLowerCase() === "sanskriti10247" ||
+        r.name.toLowerCase() === "sanskriti-portfolio"
+    ),
+    ...originals.filter(
+      (r) =>
+        r.name.toLowerCase() !== "sanskriti10247" &&
+        r.name.toLowerCase() !== "sanskriti-portfolio"
+    ),
+  ];
+
   return (
     <section
       id="projects"
       className="bg-gray-950 text-white px-8 py-20 relative overflow-hidden"
     >
-       { /* === Title ==== */}
+      {/* === Title ==== */}
       <h2 className="text-6xl font-extrabold text-center mb-16 bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text">
         💻 Projects
       </h2>
 
-      {/* ===== Originals ===== */}
+      {/* Originals */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-        {originals.map((repo, i) => (
+        {prioritized.map((repo, i) => (
           <motion.div
             key={repo.id}
             initial={{ opacity: 0, y: 40 }}
@@ -64,7 +78,7 @@ function Projects() {
                 {repo.name}
               </h3>
 
-              {/*  Description */}
+              {/* Description */}
               <p className="text-gray-300 text-lg italic flex-1">
                 “{repo.description || "No description provided"}”
               </p>
