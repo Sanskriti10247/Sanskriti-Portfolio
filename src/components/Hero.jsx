@@ -2,7 +2,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import codingGirl from "../assets/Coding.json";
-import resume from "../assets/SANSKRITI_CV.pdf";
+import resume from "../assets/Sanskriti_new_CV.pdf";
 
 //Hero Section for front look
 function Hero() {
