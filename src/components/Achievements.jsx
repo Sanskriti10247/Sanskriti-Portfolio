@@ -17,10 +17,9 @@ import {
   FaGithub,
   FaLaptopCode,
   FaBook,
-  FaCheckCircle,
 } from "react-icons/fa";
 
-// Importing BADGES 
+// Importing BADGES
 import badge50 from "../assets/Badges/50DaysBadge.gif";
 import badge100 from "../assets/Badges/100Daysbadge.gif";
 import sqlBadge from "../assets/Badges/50SqlQuestions.gif";
@@ -48,35 +47,35 @@ function Achievements() {
 
   // Leadership Roles
   const schoolLeadership = [
-    { role: "Prefect to the VP", place: "Radiant International School", year: "Class 9 (2020–21)", icon: <FaCrown className="text-yellow-400 text-2xl" /> },
-    { role: "Dy. Head Girl", place: "Radiant International School", year: "Class 11 (2022–23)", icon: <FaUserGraduate className="text-pink-400 text-2xl" /> },
+    { role: "Prefect to the VP", place: "Radiant International School", year: "Class 9 (2020–21)", icon: <FaCrown className="text-yellow-400 text-3xl" /> },
+    { role: "Dy. Head Girl", place: "Radiant International School", year: "Class 11 (2022–23)", icon: <FaUserGraduate className="text-pink-400 text-3xl" /> },
   ];
 
   const collegeLeadership = [
-    { role: "Core Member – E-Cell", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaLightbulb className="text-red-400 text-2xl" /> },
-    { role: "Creator’s Club Elite", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaUsers className="text-purple-400 text-2xl" /> },
-    { role: "Core Food Committee Member", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaUtensils className="text-green-400 text-2xl" /> },
-    { role: "Drone Club – Member", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaRobot className="text-blue-400 text-2xl" /> },
+    { role: "Core Member – E-Cell", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaLightbulb className="text-red-400 text-3xl" /> },
+    { role: "Creator’s Club Elite", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaUsers className="text-purple-400 text-3xl" /> },
+    { role: "Core Food Committee Member", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaUtensils className="text-green-400 text-3xl" /> },
+    { role: "Drone Club – Member", place: "Scaler School of Technology", year: "College 1st Yr", icon: <FaRobot className="text-blue-400 text-3xl" /> },
   ];
 
   // GitHub & Dev
   const devAchievements = [
-    { title: "GSSoC '24 Contributor", desc: "Contributed to Open Source in GirlScript Summer of Code", icon: <FaAward className="text-pink-400 text-2xl" /> },
-    { title: "Postman Student Expert", desc: "Certified API Testing & Development", icon: <FaCertificate className="text-orange-400 text-2xl" /> },
-    { title: "SSOC Contributor", desc: "Social Summer of Code – Open Source Contributions", icon: <FaMedal className="text-green-400 text-2xl" /> },
-    { title: "OSC Contributor", desc: "Open Source Connect – Community Contributions", icon: <FaMedal className="text-blue-400 text-2xl" /> },
+    { title: "GSSoC '24 Contributor", desc: "Contributed to Open Source in GirlScript Summer of Code", icon: <FaAward className="text-pink-400 text-3xl" /> },
+    { title: "Postman Student Expert", desc: "Certified API Testing & Development", icon: <FaCertificate className="text-orange-400 text-3xl" /> },
+    { title: "SSOC Contributor", desc: "Social Summer of Code – Open Source Contributions", icon: <FaMedal className="text-green-400 text-3xl" /> },
+    { title: "OSC Contributor", desc: "Open Source Connect – Community Contributions", icon: <FaMedal className="text-blue-400 text-3xl" /> },
   ];
 
   // CP Platforms
   const cpPlatforms = [
-    { name: "CodeChef", link: "https://www.codechef.com/users/sanskriti_988", icon: <FaCode className="text-purple-400 text-2xl" /> },
-    { name: "LeetCode", link: "https://leetcode.com/u/Sanskriti10247/", icon: <FaLaptopCode className="text-yellow-400 text-2xl" /> },
-    { name: "AtCoder", link: "https://atcoder.jp/users/Sanskriti889", icon: <FaCode className="text-red-400 text-2xl" /> },
-    { name: "Codeforces", link: "https://codeforces.com/profile/Sanskriti10247", icon: <FaCode className="text-blue-400 text-2xl" /> },
-    { name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org/user/sanskriti10247/", icon: <FaBook className="text-green-400 text-2xl" /> },
+    { name: "CodeChef", link: "https://www.codechef.com/users/sanskriti_988", icon: <FaCode className="text-purple-400 text-3xl" /> },
+    { name: "LeetCode", link: "https://leetcode.com/u/Sanskriti10247/", icon: <FaLaptopCode className="text-yellow-400 text-3xl" /> },
+    { name: "AtCoder", link: "https://atcoder.jp/users/Sanskriti889", icon: <FaCode className="text-red-400 text-3xl" /> },
+    { name: "Codeforces", link: "https://codeforces.com/profile/Sanskriti10247", icon: <FaCode className="text-blue-400 text-3xl" /> },
+    { name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org/user/sanskriti10247/", icon: <FaBook className="text-green-400 text-3xl" /> },
   ];
 
-  //Badges & Certifications
+  // Badges & Certifications
   const badgeCategories = {
     LeetCode: [
       { name: "50 days of LeetCode", img: badge50 },
@@ -96,42 +95,41 @@ function Achievements() {
 
   const [activeCategory, setActiveCategory] = useState("All");
   const allBadges = Object.values(badgeCategories).flat();
-  const displayedBadges =
-    activeCategory === "All" ? allBadges : badgeCategories[activeCategory];
+  const displayedBadges = activeCategory === "All" ? allBadges : badgeCategories[activeCategory];
 
   return (
-<section id="achievements" className="bg-gray-950 text-white px-8 pb-8 relative overflow-hidden">
-{/* ===== Title ===== */}
-      <h2 className="text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-pink-400 to-purple-500 text-transparent bg-clip-text">
+    <section id="achievements" className="bg-gray-950 text-white px-4 sm:px-6 md:px-8 pb-12 relative overflow-x-hidden">
+      {/* ===== Title ===== */}
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-pink-400 to-purple-500 text-transparent bg-clip-text">
         🏆 Achievements
       </h2>
 
       {/* Academics Section */}
       <div className="mb-16">
-        <h3 className="text-3xl font-bold text-center text-blue-400 mb-8 flex justify-center items-center gap-3">
+        <h3 className="text-2xl sm:text-3xl font-bold text-center text-blue-400 mb-8 flex justify-center items-center gap-3">
           <FaBook className="text-blue-400 text-3xl" /> Academics
         </h3>
 
         {/* CP Tracker */}
         <div className="mb-12">
-          <h4 className="text-2xl font-semibold text-center text-green-300 mb-6">
+          <h4 className="text-xl sm:text-2xl font-semibold text-center text-green-300 mb-6">
             CP Tracker
           </h4>
           <div className="flex justify-center mb-10">
             <iframe
               src="https://codolio.com/profile/Sanskriti988"
               title="Codolio Profile"
-              className="w-full max-w-5xl h-[450px] rounded-xl border border-green-400"
+              className="w-full max-w-4xl h-[300px] sm:h-[400px] md:h-[450px] rounded-xl border border-green-400"
             ></iframe>
           </div>
         </div>
 
         {/* CP Platforms */}
         <div className="mb-16">
-          <h4 className="text-2xl font-semibold text-center text-yellow-300 mb-6">
+          <h4 className="text-xl sm:text-2xl font-semibold text-center text-yellow-300 mb-6">
             CP Platforms
           </h4>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
             {cpPlatforms.map((p, i) => (
               <motion.a
                 key={i}
@@ -153,20 +151,20 @@ function Achievements() {
 
         {/* GitHub & Dev Section */}
         <div>
-          <h4 className="text-2xl font-semibold text-center text-pink-300 mb-6 flex justify-center items-center gap-2">
+          <h4 className="text-xl sm:text-2xl font-semibold text-center text-pink-300 mb-6 flex justify-center items-center gap-2">
             <FaGithub className="text-2xl" /> GitHub & Dev
           </h4>
 
           {/* GitHub Stats */}
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-10 px-2">
             <img
               src="https://github-readme-stats.vercel.app/api?username=Sanskriti10247&show_icons=true&theme=radical"
               alt="GitHub Stats"
-              className="rounded-lg shadow-lg border border-pink-400"
+              className="w-full max-w-lg rounded-lg shadow-lg border border-pink-400"
             />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {devAchievements.map((d, i) => (
               <motion.div
                 key={i}
@@ -185,15 +183,15 @@ function Achievements() {
         </div>
       </div>
 
-      {/*Leadership Section */}
-      <div className="mb-32">
-        <h3 className="text-3xl font-bold text-center text-purple-400 mb-12">
+      {/* Leadership Section */}
+      <div className="mb-24 sm:mb-32">
+        <h3 className="text-2xl sm:text-3xl font-bold text-center text-purple-400 mb-12">
           Leadership & Roles
         </h3>
         <div className="max-w-5xl mx-auto space-y-16">
           {/* RIS */}
           <div>
-            <h4 className="text-2xl font-semibold text-center text-pink-300 mb-8">
+            <h4 className="text-xl sm:text-2xl font-semibold text-center text-pink-300 mb-8">
               Leadership at RIS (Radiant International School)
             </h4>
             <div className="grid md:grid-cols-2 gap-8">
@@ -217,7 +215,7 @@ function Achievements() {
 
           {/* SST */}
           <div>
-            <h4 className="text-2xl font-semibold text-center text-purple-300 mb-8">
+            <h4 className="text-xl sm:text-2xl font-semibold text-center text-purple-300 mb-8">
               Leadership at SST (Scaler School of Technology)
             </h4>
             <div className="grid md:grid-cols-2 gap-8">
@@ -241,9 +239,9 @@ function Achievements() {
         </div>
       </div>
 
-      {/* Certificates & Awards Section  */}
-      <div className="mb-32">
-        <h3 className="text-3xl font-bold text-center text-yellow-400 mb-12">
+      {/* Certificates & Awards Section */}
+      <div className="mb-24 sm:mb-32">
+        <h3 className="text-2xl sm:text-3xl font-bold text-center text-yellow-400 mb-12">
           Hall of Fame
         </h3>
 
@@ -269,18 +267,16 @@ function Achievements() {
 
         {/* Badges Section */}
         <div className="mt-16">
-          <h4 className="text-2xl font-semibold text-center text-green-300 mb-8">
+          <h4 className="text-xl sm:text-2xl font-semibold text-center text-green-300 mb-8">
             Badges & Certifications
           </h4>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
             <button
               onClick={() => setActiveCategory("All")}
               className={`px-4 py-2 rounded-lg ${
-                activeCategory === "All"
-                  ? "bg-green-500 text-black"
-                  : "bg-gray-800 text-white"
+                activeCategory === "All" ? "bg-green-500 text-black" : "bg-gray-800 text-white"
               }`}
             >
               All
@@ -290,9 +286,7 @@ function Achievements() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-lg ${
-                  activeCategory === category
-                    ? "bg-green-500 text-black"
-                    : "bg-gray-800 text-white"
+                  activeCategory === category ? "bg-green-500 text-black" : "bg-gray-800 text-white"
                 }`}
               >
                 {category}
@@ -301,28 +295,27 @@ function Achievements() {
           </div>
 
           {/* Badges Display */}
-<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-  {displayedBadges.map((badge, i) => (
-    <motion.div
-      key={i}
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: i * 0.1 }}
-      className="flex flex-col items-center bg-gray-900/70 p-4 rounded-xl shadow-lg border border-green-400/30 hover:scale-105 transition-transform"
-    >
-      <a href={badge.img} target="_blank" rel="noopener noreferrer">
-        <img
-          src={badge.img}
-          alt={badge.name}
-          className="w-32 h-32 object-contain rounded-lg cursor-pointer"
-        />
-      </a>
-      <p className="mt-3 text-sm text-center">{badge.name}</p>
-    </motion.div>
-  ))}
-</div>
-
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+            {displayedBadges.map((badge, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="flex flex-col items-center bg-gray-900/70 p-3 sm:p-4 rounded-xl shadow-lg border border-green-400/30 hover:scale-105 transition-transform"
+              >
+                <a href={badge.img} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={badge.img}
+                    alt={badge.name}
+                    className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain rounded-lg cursor-pointer"
+                  />
+                </a>
+                <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-center">{badge.name}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

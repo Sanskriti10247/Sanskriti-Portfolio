@@ -41,13 +41,15 @@ function Education() {
     >
       <div className="max-w-6xl mx-auto relative">
         {/* Title */}
-        <h2 className="text-6xl font-bold mb-16 text-center text-pink-400 drop-shadow-lg flex items-center justify-center gap-3">
-          <FaGraduationCap className="text-pink-400 drop-shadow-lg" />
-          Education
+        <h2 className="flex items-center justify-center gap-3 text-center text-pink-400 drop-shadow-lg font-bold mb-16">
+          <FaGraduationCap className="text-pink-400 drop-shadow-lg text-5xl sm:text-6xl" />
+          <span className="text-5xl sm:text-6xl">Education</span>
         </h2>
 
+        {/* Vertical Timeline Line */}
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[4px] bg-gradient-to-b from-pink-500 via-pink-400 to-pink-600 shadow-[0_0_20px_rgba(236,72,153,0.7)] animate-pulse"></div>
 
+        {/* Timeline Cards */}
         <div className="space-y-16">
           {educationData.map((edu, idx) => {
             const isLeft = idx % 2 === 0;
