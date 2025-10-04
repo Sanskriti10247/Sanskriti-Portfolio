@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import Lenis from "@studio-freight/lenis";
 
 import Navbar from "./src/components/Navbar";
 import Hero from "./src/components/Hero";
@@ -10,10 +12,30 @@ import Contact from "./src/components/Contact";
 import Footer from "./src/components/Footer";
 import Scaler from "./src/components/ScalerStuff/Scaler";
 
-//The Home Page
 function Home() {
-  return (
+  useEffect(() => {
+    // Initialize Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
 
+    // Animation loop
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Cleanup when Home is unmounted
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+  return (
     <>
       <Navbar />
       <Hero />
@@ -21,11 +43,10 @@ function Home() {
       <Education />
       <Skills />
       <Projects />
-      <Scaler/>
+      <Scaler />
       <Achievements />
-      <Contact/>
-      <Footer/>
-      
+      <Contact />
+      <Footer />
     </>
   );
 }
